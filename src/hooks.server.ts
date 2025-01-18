@@ -11,7 +11,6 @@ export function handleError(input: any) {
 }
 
 // const publicPaths = ['/public', '/docs', '/stripe', '/auth', '/cron', '/txt', '/blog','/books','/learn'];
-
 export const handle =  async ({ event, resolve }) => {
     if (strEqIgnCase(ENVS.DEV, ENV)) {
         event.locals.db = SqlLiteClient
