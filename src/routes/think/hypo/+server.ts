@@ -1,13 +1,13 @@
-import {json, type RequestEvent} from "@sveltejs/kit";
+import type {RequestEvent} from "@sveltejs/kit";
 import {hypothesesTable} from "$lib/server/db/schema";
 
-export const POST = async (event:RequestEvent)=> {
+export const GET = async (event:RequestEvent)=> {
     try {
         const db = event.locals.db;
         const hypo = await db.select().from(hypothesesTable).all();
-        return json({hypo});
+        return {hypo};
     } catch (error) {
         console.log(error);
-        return json({"error": error});
+        return {error};
     }
 }
