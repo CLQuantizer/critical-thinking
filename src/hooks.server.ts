@@ -1,6 +1,4 @@
 import {drizzle} from 'drizzle-orm/d1';
-import {SqlLiteClient} from "$lib/server/db/local/client";
-
 
 /** @type {import('@sveltejs/kit').HandleServerError} */
 export function handleError(input: any) {
@@ -11,6 +9,7 @@ export function handleError(input: any) {
 // const publicPaths = ['/public', '/docs', '/stripe', '/auth', '/cron', '/txt', '/blog','/books','/learn'];
 export const handle =  async ({ event, resolve }) => {
     const DB = event.platform?.env?.DB;
-    event.locals.db = DB ? drizzle(DB): SqlLiteClient;
+    if (!DB) throw new Error("DB not found");
+    event.locals.db = drizzle(DB)
     return await resolve(event)
 }

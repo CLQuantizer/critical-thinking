@@ -8,14 +8,12 @@
 
 <ModeWatcher />
 <div class="flex flex-col w-screen">
-    <div class="flex justify-between w-full pt-4 pb-2 px-6 gap-4">
+    <div class="absolute flex justify-between w-full pt-6 pb-2 px-6 gap-4">
         <div></div>
-        <div class="flex gap-4 items-center">
-            <button on:click={toggleMode}>
-                <MoonStar class="hidden dark:block"/>
-                <Sun class="dark:hidden"/>
-            </button>
-        </div>
+        <button on:click={toggleMode}>
+            <MoonStar class="hidden dark:block"/>
+            <Sun class="dark:hidden"/>
+        </button>
     </div>
     <slot></slot>
 </div>
