@@ -25,7 +25,8 @@
 
         try {
             const response = await ky.post('/think', {
-                json: { hypothesis, context }
+                json: { hypothesis, context },
+                timeout: 30000
             }).json<{ alternatives: Alternative[] }>();
 
             alternatives = response.alternatives;
@@ -90,9 +91,9 @@
 
             <div class="space-y-4">
                 {#each alternatives as alternative, i}
-                    <div class="p-4 border rounded-lg bg-gray-50">
+                    <div class="p-4 border rounded-lg">
                         <h4 class="font-medium text-lg">{alternative.name}</h4>
-                        <p class="mt-2 text-gray-700">{alternative.text}</p>
+                        <p class="mt-2">{alternative.text}</p>
                     </div>
                 {/each}
             </div>

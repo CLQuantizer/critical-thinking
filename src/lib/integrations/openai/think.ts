@@ -12,11 +12,12 @@ const generateAlternativeHypothesesPrompt = (hypothesis: string, context:string)
         .replace('${hypothesis}', hypothesis);
 
 export const generateAlternativeHypotheses = async (hypothesis: string, context:string) => {
+    const userPrompt = generateAlternativeHypothesesPrompt(hypothesis, context);
     const completion = await openai.beta.chat.completions.parse({
         model: "gpt-4o",
         messages: [
             { role: "system", content: ALTERNATIVE_HYPOTHESES_SYSTEM },
-            { role: "user", content: generateAlternativeHypothesesPrompt(hypothesis, context) },
+            { role: "user", content: userPrompt },
         ],
         max_tokens: 600,
         response_format: zodResponseFormat(alternativeHypothesesResult, "options"),
