@@ -1,5 +1,5 @@
 export const API="/private/api";
-export const SENTENCE_API = API + "/sent";
+export const USER_ID = "user_id";
 export const FREE_PAGE_LIMIT = 10;
 export const strEqIgnCase = (a: string | null | undefined, b: string | null | undefined): boolean =>
     !!a && !!b && a.toLowerCase() === b.toLowerCase();

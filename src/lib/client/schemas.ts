@@ -51,3 +51,11 @@ export const paraModifySchema = z.object({
 });
 
 export type ParaModify = z.infer<typeof paraModifySchema>;
+
+export type Hypothesis = {
+    id: number
+    text: string;
+    context: string;
+    hash: string;
+    status: number;
+}

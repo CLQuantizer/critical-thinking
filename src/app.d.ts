@@ -4,7 +4,9 @@ declare global {
 	namespace App {
 		// interface Error {}
 		interface Locals {
+			// DrizzleD1Database or
 			db: DrizzleD1Database
+			userId: string
 		}
 		interface Platform {
 			env?: {
