@@ -60,8 +60,8 @@
     }
 </script>
 
-<div class="container mx-auto py-4 max-w-4xl">
-    <div class="space-y-8">
+<div class="container mx-auto pt-6 pb-24">
+    <div class="space-y-4">
         <h2 class="text-2xl font-bold">Alternative Hypotheses</h2>
 
         <div class="space-y-2">
