@@ -1,7 +1,7 @@
 import {drizzle} from 'drizzle-orm/d1';
 import {ENVS, strEqIgnCase} from "$lib/client/common";
-import {ENV} from "$env/static/private";
 import {SqlLiteClient} from "$lib/server/db/local/client";
+import {ENV} from "$env/static/private";
 
 
 /** @type {import('@sveltejs/kit').HandleServerError} */
