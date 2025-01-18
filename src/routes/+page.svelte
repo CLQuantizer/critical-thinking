@@ -96,9 +96,9 @@
                 >
                     {#if loading}
                         <span class="inline-block animate-spin mr-2">⟳</span>
-                        Generating...
+                        Thinking...
                     {:else}
-                        Generate Alternatives
+                        Get Alternatives
                     {/if}
                 </Button>
 
