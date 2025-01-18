@@ -1,5 +1,3 @@
-import {z} from "zod";
-import {strEqIgnCase} from "$lib/client/common";
 import {drizzle} from 'drizzle-orm/d1';
 
 /** @type {import('@sveltejs/kit').HandleServerError} */
