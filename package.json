@@ -41,7 +41,6 @@
 		"ky": "^1.7.1",
 		"lucide-svelte": "^0.437.0",
 		"mode-watcher": "^0.4.1",
-		"moderndash": "^4.0.0",
 		"openai": "^4.56.0",
 		"stripe": "^16.9.0",
 		"svelte-radix": "^1.1.1",
