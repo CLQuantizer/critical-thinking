@@ -46,7 +46,7 @@
     }
 </script>
 
-<div class="p-6 max-w-2xl mx-auto space-y-6">
+<div class="container">
     <div class="space-y-4">
         <h2 class="text-2xl font-bold">Alternative Hypothesis Generator</h2>
 

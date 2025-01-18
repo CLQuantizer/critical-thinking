@@ -1,10 +1,12 @@
 import type {DrizzleD1Database} from "drizzle-orm/d1/driver";
+import {LibSQLDatabase} from "drizzle-orm/libsql";
 
 declare global {
 	namespace App {
 		// interface Error {}
 		interface Locals {
-			db: DrizzleD1Database
+			// DrizzleD1Database or
+			db: DrizzleD1Database | LibSQLDatabase
 		}
 		interface Platform {
 			env?: {

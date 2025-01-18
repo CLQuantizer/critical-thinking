@@ -32,11 +32,12 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@libsql/client": "^0.14.0",
 		"@types/xxhashjs": "^0.2.4",
 		"bits-ui": "^0.21.15",
 		"clsx": "^2.1.1",
 		"dotenv": "^16.4.5",
-		"drizzle-orm": "^0.31.2",
+		"drizzle-orm": "^0.31.4",
 		"drizzle-zod": "^0.5.1",
 		"ky": "^1.7.1",
 		"lucide-svelte": "^0.437.0",
