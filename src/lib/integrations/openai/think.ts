@@ -8,8 +8,8 @@ const alternativeHypothesesResult = z.object({
 
 const generateAlternativeHypothesesPrompt = (hypothesis: string, context:string) =>
     ALTERNATIVE_HYPOTHESES_PROMPT
-        .replace('${context}', context)
-        .replace('${hypothesis}', hypothesis);
+        .replace('{{context}}', context)
+        .replace('{{hypothesis}}', hypothesis);
 
 export const generateAlternativeHypotheses = async (hypothesis: string, context:string) => {
     const userPrompt = generateAlternativeHypothesesPrompt(hypothesis, context);
