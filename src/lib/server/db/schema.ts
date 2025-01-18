@@ -14,5 +14,6 @@ export const hypothesesTable = sqliteTable('hypotheses', {
     id: integer('id').primaryKey(),
     text: text('text').notNull(),
     context: text('context').notNull(),
+    hash: text('hash').notNull(),
     status: integer('status').notNull().default(0),
 });
