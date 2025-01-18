@@ -8,14 +8,6 @@ export function handleError(input: any) {
     return { message };
 }
 
-const validateJsonAndReturn = (str: string|null|undefined) => {
-    try {
-        return JSON.parse(str as string)
-    } catch (e) {
-        return false;
-    }
-}
-
 const publicPaths = ['/public', '/docs', '/stripe', '/auth', '/cron', '/txt', '/blog','/books','/learn'];
 
 export const handle =  async ({ event, resolve }) => {

@@ -1,12 +1,22 @@
 <script lang="ts">
     import "../app.css";
     import {popStore} from "$lib/store";
-    import {ModeWatcher} from "mode-watcher";
+    import {ModeWatcher, toggleMode} from "mode-watcher";
     import {Root, Title, Description} from "$lib/components/ui/alert";
+    import {MoonStar, Sun} from "lucide-svelte";
 </script>
 
 <ModeWatcher />
 <div class="flex flex-col w-screen">
+    <div class="flex justify-between w-full pt-4 pb-2 px-6 gap-4">
+        <div></div>
+        <div class="flex gap-4 items-center">
+            <button on:click={toggleMode}>
+                <MoonStar class="hidden dark:block"/>
+                <Sun class="dark:hidden"/>
+            </button>
+        </div>
+    </div>
     <slot></slot>
 </div>
 
