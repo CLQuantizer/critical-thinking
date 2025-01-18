@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /books
+Disallow: /api/
+Disallow: /private/
+Disallow: /txt/
+
+# Sitemap location
+Sitemap: https://fr.mywords.io/sitemap.xml
