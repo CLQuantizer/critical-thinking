@@ -8,16 +8,11 @@ export function handleError(input: any) {
     return { message };
 }
 
-const publicPaths = ['/public', '/docs', '/stripe', '/auth', '/cron', '/txt', '/blog','/books','/learn'];
+// const publicPaths = ['/public', '/docs', '/stripe', '/auth', '/cron', '/txt', '/blog','/books','/learn'];
 
 export const handle =  async ({ event, resolve }) => {
     const DB = event.platform?.env?.DB;
     if (!DB) throw new Error("DB is not set");
     event.locals.db = drizzle(DB);
-    const isPublicRoute = publicPaths.some(path => event.url.pathname.startsWith(path)
-        || (strEqIgnCase(event.url.pathname.toLowerCase(),'/')));
-    if (isPublicRoute) {
-        return await resolve(event);
-    }
     return await resolve(event)
 }
