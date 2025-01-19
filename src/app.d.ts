@@ -7,6 +7,7 @@ declare global {
 		interface Locals {
 			// DrizzleD1Database or
 			db: DrizzleD1Database | LibSQLDatabase
+			userId: string
 		}
 		interface Platform {
 			env?: {

@@ -31,12 +31,12 @@
 
         try {
             const response = await ky.post('/think', {
-                json: { hypothesis, context },
+                json: { hypothesis, context, error },
                 timeout: 30000
             }).json<ApiResponse>();
 
             if (response.error) {
-                pop('error', response.error);
+                pop(response.error, 'error');
                 return;
             }
 

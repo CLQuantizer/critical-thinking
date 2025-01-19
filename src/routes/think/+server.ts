@@ -19,11 +19,14 @@ export const POST = async (event:RequestEvent)=> {
         const db = event.locals.db;
         const {hypothesis, context} = await event.request.json() as {hypothesis:string, context:string};
         const hash = hashText(hypothesis+context);
-        await db.insert(hypothesesTable).values({text:hypothesis, context, hash});
+        await db.insert(hypothesesTable).values({text:hypothesis, context, hash})
         const alternatives = await generateAlternativeHypotheses(hypothesis, context);
         return json({alternatives});
-    } catch (error) {
+    } catch (error:any) {
+        if (error.message?.includes("UNIQUE constraint")) {
+            return json({error: "Repeated Hypothesis"});
+        }
         console.log(error);
-        return json({"error": error});
+        return json({"error": "Internal Server Error"});
     }
 }
