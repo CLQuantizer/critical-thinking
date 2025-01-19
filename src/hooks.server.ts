@@ -6,7 +6,6 @@ export function handleError(input: any) {
     return { message };
 }
 
-// const publicPaths = ['/public', '/docs', '/stripe', '/auth', '/cron', '/txt', '/blog','/books','/learn'];
 export const handle =  async ({ event, resolve }) => {
     const DB = event.platform?.env?.DB;
     if (!DB) throw new Error("DB not found");

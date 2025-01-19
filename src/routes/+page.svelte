@@ -2,6 +2,7 @@
     import { fade } from 'svelte/transition';
     import ky from 'ky';
     import { Button } from "$lib/components/ui/button";
+    import {pop} from "$lib/store";
 
     interface Alternative {
         name: string;
@@ -35,7 +36,8 @@
             }).json<ApiResponse>();
 
             if (response.error) {
-                throw new Error(response.error);
+                pop('error', response.error);
+                return;
             }
 
             alternatives = response.alternatives || [];
@@ -65,16 +67,6 @@
         <h2 class="text-2xl font-bold">Alternative Hypotheses</h2>
 
         <div class="space-y-2">
-            <div class="space-y-2">
-                <label for="hypothesis" class="block font-medium">Your Hypothesis</label>
-                <textarea
-                        id="hypothesis"
-                        bind:value={hypothesis}
-                        class="w-full p-3 border rounded-lg min-h-[100px] focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white/5"
-                        placeholder="Enter your hypothesis here..."
-                        disabled={loading}
-                />
-            </div>
 
             <div class="space-y-2">
                 <label for="context" class="block font-medium">Context</label>
@@ -83,6 +75,17 @@
                         bind:value={context}
                         class="w-full p-3 border rounded-lg min-h-[100px] focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white/5"
                         placeholder="Provide context for your hypothesis..."
+                        disabled={loading}
+                />
+            </div>
+
+            <div class="space-y-2">
+                <label for="hypothesis" class="block font-medium">Your Hypothesis</label>
+                <textarea
+                        id="hypothesis"
+                        bind:value={hypothesis}
+                        class="w-full p-3 border rounded-lg min-h-[100px] focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white/5"
+                        placeholder="Enter your hypothesis here..."
                         disabled={loading}
                 />
             </div>
