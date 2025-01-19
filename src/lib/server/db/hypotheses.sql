@@ -1,6 +1,7 @@
 CREATE TABLE hypotheses (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     text TEXT NOT NULL,
+    user_id TEXT NOT NULL,
     context TEXT NOT NULL,
     hash TEXT NOT NULL UNIQUE,
     status INTEGER NOT NULL DEFAULT 0,
