@@ -1,2 +1,4 @@
-export const load = async ({ locals }) => {
+export const load = async ({ locals, parent }) => {
+    const {hypotheses} = await parent()
+    return {hypotheses};
 }
