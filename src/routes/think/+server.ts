@@ -19,7 +19,7 @@ export const POST = async (event:RequestEvent)=> {
         const db = event.locals.db;
         const userId = event.locals.userId;
         const {hypothesis, context} = await event.request.json() as {hypothesis:string, context:string};
-        const hash = hashText(hypothesis+context);
+        const hash = hashText(hypothesis+context+userId);
         const [_, alternatives] = await Promise.all([
             db.insert(hypothesesTable).values({text:hypothesis, context, hash, userId}),
             generateAlternativeHypotheses(hypothesis, context)

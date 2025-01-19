@@ -1,3 +1,8 @@
+import {getUserHypotheses} from "$lib/server/db/queries";
+
 export const load = async ({ locals }) => {
-    // console.log("Loading layout, userId", locals.userId)
+    const userId = locals.userId;
+    const db = locals.db;
+    const hypotheses = await getUserHypotheses(userId, db);
+    return {hypotheses};
 }
