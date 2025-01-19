@@ -127,7 +127,6 @@
     {#if alternatives.length > 0}
         <div class="space-y-6 mt-12" transition:fade={{ duration: 300 }}>
             <h3 class="text-xl font-semibold">Alternative Hypotheses</h3>
-
             <div class="space-y-6">
                 {#each alternatives as alternative, i}
                     <div class="p-6 border rounded-lg hover:border-blue-500 transition-colors">
