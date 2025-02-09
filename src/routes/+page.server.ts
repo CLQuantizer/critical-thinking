@@ -6,8 +6,8 @@ export const load = async ({ locals, parent }) => {
     console.log("userId", userId, 'hypotheses', hypotheses.length);
     // if length > 0, take the id of the first hypothesis and redirect to /think/[id]
     if (hypotheses.length === 0) {
-        redirect(301, '/new');
+        redirect(307, '/new');
     } else {
-        redirect(301, `/${hypotheses[0].id}`);
+        redirect(307, `/${hypotheses[0].id}`);
     }
 }
