@@ -1,6 +1,6 @@
 import {test, expect} from "vitest"
 import ky from "ky";
-import {generateAlternativeHypotheses} from "$lib/integrations/Gemini";
+import {generateAlternativeHypotheses} from "$lib/integrations/gemini/Gemini";
 
 test.only("test hypo", async () => {
     const x = await generateAlternativeHypotheses("The earth is flat",

@@ -1,7 +1,7 @@
 import {json, type RequestEvent} from "@sveltejs/kit";
 import {hypothesesTable} from "$lib/server/db/schema";
 import {hashText} from "$lib/server/services/hash";
-import {generateAlternativeHypotheses} from "$lib/integrations/Gemini";
+import {generateAlternativeHypotheses} from "$lib/integrations/gemini/Gemini";
 
 export const GET = async (event:RequestEvent)=> {
     try {
