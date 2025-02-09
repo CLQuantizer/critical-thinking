@@ -27,5 +27,9 @@ export const handle =  async ({ event, resolve }) => {
         })
     }
     event.locals.userId = userId
-    return await resolve(event)
+    const response = await resolve(event)
+    response.headers.set('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
+    response.headers.set('Pragma', 'no-cache');
+    response.headers.set('Expires', '0');
+    return response
 }
