@@ -8,7 +8,7 @@ export const load = async ({ params, locals }) => {
     const db = locals.db;
     const hypothesis = await getUserHypothesisById(userId, id, db);
     if (!hypothesis) {
-        redirect(301, "/new");
+        redirect(307, "/new");
     }
     console.log("userId", userId, 'hypotheses', hypothesis);
     return {hypothesis};
