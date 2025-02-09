@@ -7,8 +7,9 @@ export const load = async ({ params, locals }) => {
     const id = z.number().parse(+params.id);
     const db = locals.db;
     const hypothesis = await getUserHypothesisById(userId, id, db);
+    const timestamp = Date.now();
     if (!hypothesis) {
-        redirect(307, "/new");
+        redirect(307, "/new?timestamp=" + timestamp);
     }
     console.log("userId", userId, 'hypotheses', hypothesis);
     return {hypothesis};
